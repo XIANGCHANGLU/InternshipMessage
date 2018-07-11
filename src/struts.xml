@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC 
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.multipart.maxSize" value="524288000" />
+	<constant name="struts.multipart.saveDir" value="D:/mytemp" />
+
+	<!-- 将对象交给spring管理 -->
+	<constant name="struts.objectFactory" value="spring" />
+	<!-- 指定资源编码类型 -->
+	<constant name="struts.i18n.encoding" value="utf-8"></constant>
+	<package name="Add" extends="struts-default">
+		<action name="LoginAction_*" class="LoginActionBean" method="{1}">
+			<result name="success">/index.jsp</result>
+			<result name="redirect">/index.jsp</result>
+			<result name="login">/login.html</result>
+		</action>
+		<action name="AdminAction_*" class="AdminActionBean" method="{1}">
+			<result name="success">../../Web/admin/showStudent.jsp
+			</result>
+			<result name="person">Web/student/personalData.jsp</result>
+			<result name="result">showStudent.jsp</result>
+			<result name="student">showStudent.jsp</result>
+			<result name="score">showInternshipScore.jsp</result>
+			<result name="pie">Web/admin/pie.jsp</result>
+		</action>
+		<action name="TeacherAction_*" class="TeacherActionBean"
+			method="{1}">
+			<result name="person">Web/teacher/personalData.jsp</result>
+			<result name="success">../../Web/admin/showTeacher.jsp
+			</result>
+				<result name="score">Web/teacher/showInternshipScore.jsp
+			</result>
+		</action>
+		<action name="CompanyAction_*" class="CompanyActionBean"
+			method="{1}">
+			<result name="success">../../Web/admin/showCompany.jsp
+			</result>
+			<result name="companyinfo">Web/company/companyInfo.jsp
+			</result>
+			<result name="evaluation">Web/company/EvaluationStu.jsp
+			</result>
+			<result name="showEvaStu">Web/company/showEvaStu.jsp
+			</result>
+			<result name="evastu">Web/teacher/showEvaStu.jsp
+			</result>
+		</action>
+		<action name="StudentAction_*" class="StudentActionBean"
+			method="{1}">
+			<result name="success">../../Web/student/applyJob.jsp</result>
+			<result name="apply">../../Web/student/myApply.jsp</result>
+		</action>
+		<action name="JournalAction_*" class="JournalActionBean"
+			method="{1}">
+			<result name="success">../../Web/student/weeklyJournal.jsp
+			</result>
+			<result name="show">Web/student/weeklyReport.jsp</result>
+			<result name="update">Web/student/updateReport.jsp</result>
+			<result name="approval">reportList.jsp</result>
+			<result name="edit">approvalJournal.jsp</result>
+		</action>
+		<action name="UploadAction_*" class="UploadActionBean" method="{1}">
+			<result name="success">uploadThesis.jsp</result>
+		</action>
+		<action name="fileDownload_*" class="util.BatchDownloadAction" method="{1}">
+			<result name="success" type="stream">
+				<param name="contentType">application/octet-stream</param>
+				<param name="inputName">downloadFile</param>
+				<param name="contentDisposition">attachment;filename="Data.zip"</param>
+			</result>
+		</action>
+		<action name="RmSessionAction_*" class="RmSessionActionBean"
+			method="{1}">
+			<result name="success">login.html</result>
+		</action>
+			<action name="ApplyAction_*" class="ApplyActionBean"
+			method="{1}">
+			<result name="success">Web/company/ApplyList.jsp</result>
+			<result name="marking">Web/teacher/markingScore.jsp</result>
+		</action>
+	</package>
+</struts>

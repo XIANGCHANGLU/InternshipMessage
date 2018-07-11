@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>学生实习信息管理系统</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta name="msapplication-tap-highlight" content="no" />
+<meta content="minimal-ui" name="viewport" />
+<meta
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+	name="viewport" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+
+<link rel="stylesheet" type="text/css"
+	href="resource/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="resource/css/bootstrap-responsive.min.css" />
+
+<link rel="stylesheet" type="text/css" href="resource/css/common.css" />
+
+<script src="resource/js/jquery.min.js?v=2.1.4"></script>
+<script type="text/javascript" src="resource/js/login.js"></script>
+<style>
+.login-video {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: -1;
+}
+
+.login-container {
+	transition: all linear .2s;
+}
+
+.btn-green-trspt {
+	border: none;
+	color: #fff;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#7F05c697,
+		endColorstr=#7F05c697);
+}
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	padding: 10px0;
+	font-size: 15px;
+	color: #ffffff;
+	margin-left: 50%;
+	left: -80px;
+}
+
+.login-form-title {
+	padding: 70px;
+	margin-left: -50px;
+	width: 380px;
+}
+.login-container .login-form-title{
+	left: 240px;
+	top:0px;
+}
+
+h4 {
+	margin-left: 121px;
+	margin-top: 90px;
+}
+.login-container .login-form-info {
+    position: absolute;
+    left: 310px;
+    top: 225px;
+    text-align: center;
+    width: 300px;
+    height: 200px;
+}
+.login-form-info input{
+	
+}
+</style>
+</head>
+<body class="Login-bg">
+	<video id="loginVideo" src="resource/images/login.mp4"
+		autoplay="autoplay" loop="loop" class="login-video"></video>
+	<div class="login-container">
+		<div class="login-form-title">
+			<img src="resource/images/logo.png">
+			<h4>学生实习信息管理系统</h4>
+		</div>
+		<div class="login-form-info">
+			<form action="LoginAction_signIn.action" method="POST" onsubmit="return checkLoginForm()">
+				<div class="login-form-field">
+					<label>用户名： </label> <input id="usernameField" data-tab="tab-focus"
+						type="text" class="login-form-text" tabindex="1" name="username">
+				</div>
+				<div class="login-form-field">
+					<label>密 &nbsp; 码：</label> <input id="passwordField"
+						data-tab="tab-focus" type="password" class="login-form-text "
+						tabindex="2" name="password">
+				</div>
+				<div class="login-form-field">
+					<label>身 &nbsp; 份：</label> <select name="usertype"
+						id="identityField">
+						<option value="学生" selected>学生</option>
+						<option value="教师">教师</option>
+						<option value="企业">企业</option>
+						<option value="管理员">管理员</option>
+					</select>
+				</div>
+				<input id="submitButton" class="btn-green-trspt"
+					data-tab="tab-focus" tabindex="3" type="submit" value="登录" style="height:30px;color:green;">
+			</form>
+		</div>
+		<div id="tips" class="login-tips alert-danger"></div>
+	</div>
+
+	<div class="footer" style="font-size:13px;">
+		&nbsp; &nbsp;2016 &nbsp;广州大学华软软件学院<span style="padding-left: 20px"></span>
+	</div>
+	<form action="redirectForm" action="" method="post"></form>
+	<script type="text/javascript" src="resource/js/component.js"></script>
+	<script type="text/javascript">
+	function checkLoginForm(){
+		var usernameField = $("#usernameField").val();
+		var passwordField = $("#passwordField").val();
+		if(usernameField==""){
+			alert("账号不能为空！");
+			return false;
+		}else if(passwordField==""){
+			alert("密码不能为空！");
+			return false;
+		}else{
+			return true;
+		}
+	}
+	</script>
+</body>
+</html>
+
+
